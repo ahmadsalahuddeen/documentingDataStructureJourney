@@ -1,6 +1,2 @@
-let result = {
-  a: 1,
-  b: 2
-}
-
-console.log(result)
+let str = 'heyhowareyou'
+console.log(str[2])
