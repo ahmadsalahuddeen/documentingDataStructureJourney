@@ -2,14 +2,12 @@
 
 
 const countDown = (number) =>{
-    if (number >=  0) {
-        console.log(number)
-      
+    if (number <=  0) {
+        console.log('All is done')
+        return;
     }    
-     else {
-return console.log('All is done')
-    }
-    number--
+    console.log(number);
+    number--;
     countDown(number)    
    
 
