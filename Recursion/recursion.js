@@ -16,6 +16,9 @@ const countDown = (number) => {
 
 
 
+
+
+
 // factorial in common way
 function commonFactorial(number) {
   // outpul should be a total  number
@@ -27,7 +30,12 @@ function commonFactorial(number) {
   }
   console.log(total);
 }
-commonFactorial(5);
+//commonFactorial(5);  <--------------------  invoking the function
 
+//factorial using recursive function
+function recursiveFactorial(num) {
+  if (num === 1) return 1;
+  return num * recursiveFactorial(num - 1);
+}
 
-
+//console.log( recursiveFactorial(5))  <--------------------  invoking the function
