@@ -25,6 +25,7 @@ function commonFactorial(number) {
   //loop start from input till 2
   total = 1;
 
+  console.log(total);
   for (i = number; i >= 2; i--) {
     total *= i;
   }
