@@ -23,7 +23,8 @@ this.tail  = null
              this.tail = newNode
         }
         this.length++
-
+        console.log('Stringified version: ',JSON.stringify(this, null, 4) );
+console.log( this)
         return this;
     } 
 
@@ -31,3 +32,5 @@ this.tail  = null
 
 var list = new sLinkedList()
  list.push('hi')
+ list.push('how ')
+ list.push('are')
