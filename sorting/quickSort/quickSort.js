@@ -9,9 +9,22 @@ for(i = start+1; i< arr.length; i++){
     }
 }
 [arr[swapIndex], arr[start]] = [arr[start], arr[swapIndex]]
-return arr
+return swapIndex;
 
 
 }
 
-console.log( pivot([99,1,5,6,2,67,34,3]))
+
+
+
+function quickSort( arr, left= 0, right = arr.length-1){
+    if (left < right) {
+        let pivotIndex = pivot(arr, left, right)
+        quickSort(arr, left, pivotIndex-1)
+        quickSort(arr,  pivotIndex+1, right)
+        
+    }
+    return arr;
+}
+
+console.log( quickSort([23, 56,2,1,5,3,32,11, 4,11123,34]))
