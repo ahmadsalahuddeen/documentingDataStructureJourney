@@ -29,6 +29,15 @@ this.end = newNode
     return ++this.length
 }
 
-
+pop(){
+    temp = this.first.value
+    if(this.first = null) return null
+    if(this.first === this.end){
+        this.end = null
+    }
+    this.first = this.first.next
+    this.length--
+return temp
+}
 
 }
