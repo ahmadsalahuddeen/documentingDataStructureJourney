@@ -4,7 +4,7 @@ this.value = value
 this.next = null
     }
 }
-
+ 
 
 class Stack {
 
@@ -15,13 +15,13 @@ class Stack {
     }
 
     push(value){
-        newNode = new Node(value)
+     let   newNode = new Node(value)
 if(!this.start){
 this.start = newNode
 this.end = newNode
 
     }else{
-        temp = this.start
+        var temp = this.start
         this.start = newNode
         this.start.next = temp
 
@@ -30,14 +30,27 @@ this.end = newNode
 }
 
 pop(){
-    temp = this.first.value
-    if(this.first = null) return null
-    if(this.first === this.end){
+   var temp = this.start
+    if(this.start === null) return null
+    if(this.start === this.end){
         this.end = null
     }
-    this.first = this.first.next
+    this.start = this.start.next
     this.length--
-return temp
+return temp.value
 }
 
 }
+
+
+let stack = new Stack()
+
+stack.push('hi')
+stack.push('how')
+stack.push('are')
+stack.push('you')
+
+
+stack.pop()
+
+
