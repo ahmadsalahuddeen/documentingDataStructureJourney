@@ -44,6 +44,16 @@ for(let j= 0; j< this.keyMap[i]?.length; j++){
     }
     return valuesArr;
   }
+  keys(){
+    let keysArr =[]
+
+    for(let i=0;  i < this.keyMap.length; i++){
+for(let j= 0; j< this.keyMap[i]?.length; j++){
+    keysArr.push(this.keyMap[i][j][0])
+}
+    }
+    return keysArr;
+  }
 }
 
 let table = new HashTable(10);
@@ -52,4 +62,4 @@ table.set("salahuddeen", "19");
 table.set("joe", "20");
 table.set("zoel", "30");
 table.set("baby", "just born");
-console.log( table.values())
+console.log( table.keys())
