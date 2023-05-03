@@ -25,10 +25,27 @@ set(key, value){
     this.keyMap[index].push([key, value])
 
 }
+
+
+get(key){
+    let index = this._hash(key)
+    for(let i=0; i< this.keyMap[index]?.length; i++){  //optional chaining, instead of  if case conditioning if theres is no item (trying to documnet and comment, WTH am i writing )
+        if(this.keyMap[index][i][0] === key){
+return this.keyMap[index][i]
+        }   
+             return undefined;
+    }
+
+}
+
+
 }
 
 let table = new HashTable()
 
-table.set('name', 'salahuddeen')
-table.set('name', 'salahuddeen')
-table.set('name', 'salahuddeen')
+table.set('salahuddeen', '19')
+table.set('joe', '20')
+table.set('zoel', '30')
+table.set('baby', 'just born')
+console.log( table.get('joe'))
+
