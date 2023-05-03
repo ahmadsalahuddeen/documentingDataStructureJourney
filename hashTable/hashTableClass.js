@@ -31,7 +31,7 @@ get(key){
     let index = this._hash(key)
     for(let i=0; i< this.keyMap[index]?.length; i++){  //optional chaining, instead of  if case conditioning if theres is no item (trying to documnet and comment, WTH am i writing )
         if(this.keyMap[index][i][0] === key){
-return this.keyMap[index][i]
+return this.keyMap[index][i][1]
         }   
              return undefined;
     }
