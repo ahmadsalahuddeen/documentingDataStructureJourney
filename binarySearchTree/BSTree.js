@@ -11,10 +11,6 @@ class BinarySearchTree {
     this.root = null;
   }
 
-
-
-
-
   insert(value) {
     let newNode = new Node(value);
 
@@ -29,7 +25,6 @@ class BinarySearchTree {
           if (currentNode.left === null) {
             currentNode.left = newNode;
 
-
             return this;
           } else {
             currentNode = currentNode.left;
@@ -37,7 +32,6 @@ class BinarySearchTree {
         } else if (value > currentNode.value) {
           if (currentNode.right == null) {
             currentNode.right = newNode;
-
 
             return this;
           } else {
@@ -47,10 +41,6 @@ class BinarySearchTree {
       }
     }
   }
-
-
-
-
 
   find(value) {
     if (this.root === null) return console.log("root is null");
@@ -69,27 +59,36 @@ class BinarySearchTree {
     return console.log("cant find the value");
   }
 
+BFS() {
+    if (this.root === null) return console.log("tree is empty");
 
+    let queue = [];
+    let data = [];
+    let node;
+    queue.push(this.root);
 
-  BFS() {
-if(this.root === null) return console.log('tree is empty')
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.value);
 
-let queue = []
-let data = []
-let node;
-queue.push(this.root)
+      if (node.right) queue.push(node.right);
+      if (node.left) queue.push(node.left);
+    }
+    return console.log("All data: " + data);
+  }
 
-while(queue.length){
-node = queue.shift()
-data.push(node.value)
+  DFSPreOrder() {
+    let data = [];
 
-if(node.right) queue.push(node.right)
-if(node.left) queue.push(node.left)
+    function travers(node) {
+      data.push(node.value);
 
-}
-return console.log('All data: '+ data)
+      if (node.left) travers(node.left);
+      if (node.right) travers(node.right);
+    }
 
-
+    travers(this.root);
+    return console.log(data)
   }
 }
 
@@ -104,4 +103,4 @@ tree.insert(45);
 tree.insert(5);
 tree.insert(1234);
 
-tree.BFS()
+tree.DFSPreOrder()
