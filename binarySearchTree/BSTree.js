@@ -11,5 +11,15 @@ class BinarySearchTree {
         this.root = null
     }
 
-    
+    insert(value){
+    let newNode = new Node(value)
+        while(true){
+            if(this.root === null){
+                this.root = newNode;
+                return this;
+            }
+}
+    }
+
+
 }
