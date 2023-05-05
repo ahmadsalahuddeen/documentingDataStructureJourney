@@ -20,9 +20,13 @@ class BinarySearchTree {
     } else {
       let currentNode = this.root;
       while (true) {
+        if(value === currentNode.value) return undefined;
         if(value < currentNode.value){
             if(currentNode.left === null){
                 currentNode.left = newNode;
+                console.log(JSON.stringify(this, null, 4));
+
+                
                 return this;
             }else{
                 currentNode = currentNode.left
@@ -31,13 +35,27 @@ class BinarySearchTree {
         }else if(value > currentNode.value){
             if(currentNode.right == null){
                 currentNode.right = newNode
+                console.log(JSON.stringify(this, null, 4));
+
+
                 return this;
             }else{
                 currentNode = currentNode.right;
-                
+
             }
         }
       }
     }
   }
 }
+
+
+let tree = new BinarySearchTree()
+
+tree.insert(34)
+tree.insert(98)
+tree.insert(1)
+tree.insert(23)
+tree.insert(45)
+tree.insert(5)
+tree.insert(1234)
