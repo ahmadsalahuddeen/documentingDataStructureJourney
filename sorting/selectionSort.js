@@ -1,17 +1,19 @@
+function sort (arr){
 
-function selectionSort(arr){
-for(i=0; i<arr.length; i++){
-let lowest = i
-    for(j=i+1; j<arr.length; j++){
-if(arr[lowest]> arr[j]) lowest = j;
-    
+for(i = 0; i< arr.length ; i++) {
+    let lowest = i;
+
+    for(j= i+ 1; j <arr.length-1; j++){
+if(arr[lowest ]> arr[j]) lowest = j
+
+    }
+    if(arr[lowest] !== arr[i]){
+        [arr[lowest], arr[i]] = [arr[i], arr[lowest]]
+    }
 }
-if(arr[lowest] !== arr[i]) {
-    [arr[lowest], arr[i]] = [arr[i], arr[lowest]]
+ console.log(arr)
 }
 
-}
-return arr
-}
 
-console.log(selectionSort([2,3,452,2,54,23,3, 4,345, 23,1,423]))
+
+sort([23,4,2,6,7,2,7,94,53,12,86])
