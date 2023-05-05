@@ -90,6 +90,32 @@ BFS() {
     travers(this.root);
     return console.log(data)
   }
+  DFSPostOrder() {
+    let data = [];
+
+    function travers(node) {
+        
+        if (node.left) travers(node.left);
+        if (node.right) travers(node.right);
+        data.push(node.value);
+    }
+
+    travers(this.root);
+    return console.log(data)
+  }
+  DFSInOrder() {
+    let data = [];
+
+    function travers(node) {
+        
+        if (node.left) travers(node.left);
+        data.push(node.value);
+        if (node.right) travers(node.right);
+    }
+
+    travers(this.root);
+    return console.log(data)
+  }
 }
 
 let tree = new BinarySearchTree();
@@ -103,4 +129,6 @@ tree.insert(45);
 tree.insert(5);
 tree.insert(1234);
 
+tree.DFSPostOrder()
 tree.DFSPreOrder()
+tree.DFSInOrder()
