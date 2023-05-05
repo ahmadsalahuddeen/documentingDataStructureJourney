@@ -28,7 +28,7 @@ class BinarySearchTree {
         if (value < currentNode.value) {
           if (currentNode.left === null) {
             currentNode.left = newNode;
-            console.log(JSON.stringify(this, null, 4));
+
 
             return this;
           } else {
@@ -37,7 +37,7 @@ class BinarySearchTree {
         } else if (value > currentNode.value) {
           if (currentNode.right == null) {
             currentNode.right = newNode;
-            console.log(JSON.stringify(this, null, 4));
+
 
             return this;
           } else {
@@ -76,13 +76,18 @@ if(this.root === null) return console.log('tree is empty')
 
 let queue = []
 let data = []
-let currentNode;
+let node;
 queue.push(this.root)
 
 while(queue.length){
 node = queue.shift()
+data.push(node.value)
+
+if(node.right) queue.push(node.right)
+if(node.left) queue.push(node.left)
 
 }
+return console.log('All data: '+ data)
 
 
   }
@@ -99,4 +104,4 @@ tree.insert(45);
 tree.insert(5);
 tree.insert(1234);
 
-tree.find(5);
+tree.BFS()
