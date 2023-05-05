@@ -11,6 +11,10 @@ class BinarySearchTree {
     this.root = null;
   }
 
+
+
+
+
   insert(value) {
     let newNode = new Node(value);
 
@@ -43,23 +47,43 @@ class BinarySearchTree {
       }
     }
   }
-  find(value){
-if(this.root === null) return console.log('root is null')
-let currentNode = this.root
-let found = false
-while(!found && currentNode){
-if(value < currentNode.value){
-    currentNode = currentNode.left;
 
-}else if(value > currentNode.value){
-    currentNode = currentNode.right
-}else{
-    found = true
-    return console.log('found:'+ currentNode.value )
+
+
+
+
+  find(value) {
+    if (this.root === null) return console.log("root is null");
+    let currentNode = this.root;
+    let found = false;
+    while (!found && currentNode) {
+      if (value < currentNode.value) {
+        currentNode = currentNode.left;
+      } else if (value > currentNode.value) {
+        currentNode = currentNode.right;
+      } else {
+        found = true;
+        return console.log("found:" + currentNode.value);
+      }
+    }
+    return console.log("cant find the value");
+  }
+
+
+
+  BFS() {
+if(this.root === null) return console.log('tree is empty')
+
+let queue = []
+let data = []
+let currentNode;
+queue.push(this.root)
+
+while(queue.length){
+node = queue.shift()
+
 }
 
-}
-return console.log('cant find the value')
 
   }
 }
@@ -75,5 +99,4 @@ tree.insert(45);
 tree.insert(5);
 tree.insert(1234);
 
-
-tree.find(5)
+tree.find(5);
