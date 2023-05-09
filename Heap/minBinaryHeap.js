@@ -9,7 +9,7 @@ this.sort(value)
     }
     sort(value){
 let numberToInsert = value
-    currentIndex = this.values.length -1
+ let    currentIndex = this.values.length -1
     while(currentIndex > 0){
         let parentIndex = Math.floor((currentIndex -1)/2)
         let parentValue = this.values[parentIndex]
@@ -18,8 +18,14 @@ let numberToInsert = value
         this.values[currentIndex] = parentValue
         this.values[parentIndex] = numberToInsert
         currentIndex = parentIndex 
+        console.log(this.values)
     }
 
 
     }
 }
+
+
+let heap = new Heap()
+
+heap.insert(1)
