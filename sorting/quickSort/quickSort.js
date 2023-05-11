@@ -8,7 +8,10 @@ function pivot(arr, start=0, end=arr.length){
         }
     }
     [arr[start], arr[swapindex]] = [arr[i], arr[swapindex]]
+return swapindex
 }
 
 
-function quickSort = 
+function quickSort (arr, left=0, right= arr.length){
+    
+}
