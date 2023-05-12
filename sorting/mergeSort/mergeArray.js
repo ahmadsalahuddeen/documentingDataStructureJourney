@@ -43,4 +43,4 @@ return mergeArray(left, right)
 }
 
 
-console.log( mergeSort([2,1,543,12, 31,54,12,5,23,274,4,2]))
+console.log( mergeSort([2,1,543,12, 311,54,12,5,23,274,4,2]))
