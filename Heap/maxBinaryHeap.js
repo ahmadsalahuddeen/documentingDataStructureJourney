@@ -1,12 +1,12 @@
 class Heap {
   constructor() {
-    this.value = [41, 39, 33, 18, 27, 12];
+    this.value = [41, 39, 33, 18, 27, 12,1,4];
   }
 
   insert(newVal) {
     this.value.push(newVal);
     this.bubbleup(newVal);
-    console.log(this.value);
+    console.log('inserting'+this.value);
   }
   bubbleup(valueToInsert) {
     let idx = this.value.length - 1;
@@ -23,11 +23,13 @@ class Heap {
   //extract max/ delete
 
   deleteMax() {
+
     let idx = 0;
-    let element = this.values.pop();
+    let max = this.value[0]
+    let element = this.value.pop();
     this.value[0] = element;
+    let length = this.value.length ;
     while (true) {
-      let length = this.value.length - 1;
       let leftChildIndex = 2 * idx + 1;
       let rightChildIndex = 2 * idx + 2;
       let leftValue, rightValue;
@@ -35,13 +37,40 @@ class Heap {
       if (leftChildIndex < length) {
         leftValue = this.value[leftChildIndex];
         if (leftValue > element) {
-          swap =  leftChildIndex;
+          swap = leftChildIndex;
         }
       }
+      if (rightChildIndex < length) {
+          rightValue = this.value[rightChildIndex];
+          if (
+              swap !== null && rightValue > leftValue ||
+              swap === null && rightValue > element
+              ) {
+
+          swap = rightChildIndex;
+        }
+      }
+
+      if (swap === null) break;
+      this.value[idx] = this.value[swap];
+      this.value[swap] = element;
+      idx = swap;
     }
+    console.log('Deleting '+ max)
+
   }
+
 }
 
 let heap = new Heap();
 
 heap.insert(55);
+
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
+heap.deleteMax();
