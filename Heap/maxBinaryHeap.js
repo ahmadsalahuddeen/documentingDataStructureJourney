@@ -35,7 +35,7 @@ class Heap {
       if (leftChildIndex < length) {
         leftValue = this.value[leftChildIndex];
         if (leftValue > element) {
-          swap = leftChildIndex;
+          swap =  leftChildIndex;
         }
       }
     }
