@@ -1,19 +1,20 @@
-class Heap {
+class PriorityQueue {
     constructor() {
       this.value = [];
     }
   
-    insert(newVal) {
-      this.value.push(newVal);
-      this.bubbleup(newVal);
-      console.log('inserting'+this.value);
+    enqueue(value, priority) {
+        let newNode = new Node(value, priority)
+      this.value.push(newNode);
+      this.bubbleup(newNode);
+
     }
     bubbleup(valueToInsert) {
       let idx = this.value.length - 1;
       while (idx > 0) {
         let parentIdx = Math.floor((idx - 1) / 2);
         let parentValue = this.value[parentIdx];
-        if (valueToInsert <= parentValue) break;
+        if (valueToInsert.priority >= parentValue.priority) break;
         this.value[parentIdx] = valueToInsert;
         this.value[idx] = parentValue;
         idx = parentIdx;
@@ -22,7 +23,7 @@ class Heap {
   
     //extract max/ delete
   
-    deleteMax() {
+    dequeue() {
   
       let idx = 0;
       let max = this.value[0]
@@ -36,15 +37,15 @@ class Heap {
         let swap = null;
         if (leftChildIndex < length) {
           leftValue = this.value[leftChildIndex];
-          if (leftValue > element) {
+          if (leftValue.priority < element.priority) {
             swap = leftChildIndex;
           }
         }
         if (rightChildIndex < length) {
             rightValue = this.value[rightChildIndex];
             if (
-                swap !== null && rightValue > leftValue ||
-                swap === null && rightValue > element
+                swap !== null && rightValue.priority < leftValue.priority ||
+                swap === null && rightValue.priority < element.priority
                 ) {
   
             swap = rightChildIndex;
@@ -59,10 +60,27 @@ class Heap {
       console.log('Deleting '+ max)
   
     }
-  
+  print(){
+    console.log(this.value)
+  }
+  }
+
+  class Node {
+    constructor(value, priority){
+this.value = value;
+this.priority = priority
+    }
   }
   
-  let heap = new Heap();
-  
+  let pQueue = new PriorityQueue();
+   
+
+  pQueue.enqueue('hi', 5)
+  pQueue.enqueue('two', 2)
+  pQueue.enqueue('one', 1)
+  pQueue.enqueue('fifty', 53)
+  pQueue.dequeue()
+  pQueue.dequeue()
+  pQueue.print()
 
   
