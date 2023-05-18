@@ -19,6 +19,19 @@ this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((v)=>v !== vert
 this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((v)=>v !== vertex1) 
 
 }
+
+removeVertex(vertexToRemove){
+while(this.adjacencyList[vertexToRemove].length){
+    let edge = this.adjacencyList[vertexToRemove].pop()
+this.removeEdge(vertexToRemove, edge)
+
+}
+
+
+delete this.adjacencyList[vertexToRemove]
+
+}
+
 printVertexes(){
 console.log(this.adjacencyList)
 }
@@ -33,5 +46,6 @@ g.addVertex('kannur')
 g.addEdge('kasaragod', 'kannur')
 g.addEdge('kasaragod', 'calicut')
 g.removeEdge('calicut', 'kasaragod')
+g.removeVertex('calicut')
 g.printVertexes()
 
